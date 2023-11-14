@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+
+        .center {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="center">To-Do List</h1>
+
+    <div class="center">
+        <form method="POST" action="/add_task">
+            <input type="text" name="task" placeholder="Adicionar tarefa" required>
+            <button type="submit">Adicionar</button>
+        </form>
+        <p></p>
+        <img src="https://avatars.githubusercontent.com/u/1140504?v=4" alt="Avatar do GitHub" width="240" height="230">
+    </div>
+  
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }} - <a href="/complete_task/{{ loop.index-1 }}">Concluir</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
